@@ -111,7 +111,7 @@ class __TwigTemplate_fd5ddf5789452af6d528cba80a8f9a65 extends Template
         <p>
             <a href=\"";
             // line 11
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["conference"], "id", [], "any", false, false, false, 11)]), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["slug" => CoreExtension::getAttribute($this->env, $this->source, $context["conference"], "slug", [], "any", false, false, false, 11)]), "html", null, true);
             yield "\">View</a>
         </p>
     ";
@@ -164,7 +164,7 @@ class __TwigTemplate_fd5ddf5789452af6d528cba80a8f9a65 extends Template
     {% for conference in conferences %}
         <h4>{{ conference }}</h4>
         <p>
-            <a href=\"{{ path('conference', { id: conference.id }) }}\">View</a>
+            <a href=\"{{ path('conference', { slug: conference.slug }) }}\">View</a>
         </p>
     {% endfor %}
 {% endblock %}

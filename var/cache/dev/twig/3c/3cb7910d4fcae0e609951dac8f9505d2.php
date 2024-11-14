@@ -68,12 +68,38 @@ class __TwigTemplate_7d30f71ca67dc4f4e89653390b4f120f extends Template
         // line 10
         yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
         // line 13
-        yield "    </head>
-    <body>
-        ";
-        // line 15
-        yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
+        yield "        </head>
+        <body>
+        <header>
+            <h1><a href=\"";
         // line 16
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
+        yield "\">Questbook</a></h1>
+            <ul>
+            ";
+        // line 18
+        $context['_parent'] = $context;
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["conferences"]) || array_key_exists("conferences", $context) ? $context["conferences"] : (function () { throw new RuntimeError('Variable "conferences" does not exist.', 18, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["conference"]) {
+            // line 19
+            yield "                <li><a href=\"";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["slug" => CoreExtension::getAttribute($this->env, $this->source, $context["conference"], "slug", [], "any", false, false, false, 19)]), "html", null, true);
+            yield "\">";
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["conference"], "html", null, true);
+            yield "</a></li>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_key'], $context['conference'], $context['_parent']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 21
+        yield "            </ul>
+            <hr/>
+        </header>
+        ";
+        // line 24
+        yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
+        // line 25
         yield "    </body>
 </html>
 ";
@@ -183,7 +209,7 @@ class __TwigTemplate_7d30f71ca67dc4f4e89653390b4f120f extends Template
         yield from [];
     }
 
-    // line 15
+    // line 24
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -216,9 +242,17 @@ class __TwigTemplate_7d30f71ca67dc4f4e89653390b4f120f extends Template
     /**
      * @codeCoverageIgnore
      */
+    public function isTraitable(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
     public function getDebugInfo(): array
     {
-        return array (  187 => 15,  164 => 11,  153 => 12,  150 => 11,  137 => 10,  126 => 8,  113 => 7,  90 => 5,  77 => 16,  75 => 15,  71 => 13,  69 => 10,  66 => 9,  64 => 7,  59 => 5,  53 => 1,);
+        return array (  213 => 24,  190 => 11,  179 => 12,  176 => 11,  163 => 10,  152 => 8,  139 => 7,  116 => 5,  103 => 25,  101 => 24,  96 => 21,  85 => 19,  81 => 18,  76 => 16,  71 => 13,  69 => 10,  66 => 9,  64 => 7,  59 => 5,  53 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -235,8 +269,17 @@ class __TwigTemplate_7d30f71ca67dc4f4e89653390b4f120f extends Template
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
-    </head>
-    <body>
+        </head>
+        <body>
+        <header>
+            <h1><a href=\"{{ path('homepage') }}\">Questbook</a></h1>
+            <ul>
+            {% for conference in conferences %}
+                <li><a href=\"{{ path('conference', { slug: conference.slug }) }}\">{{ conference }}</a></li>
+            {% endfor %}
+            </ul>
+            <hr/>
+        </header>
         {% block body %}{% endblock %}
     </body>
 </html>

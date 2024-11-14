@@ -151,7 +151,7 @@ class __TwigTemplate_3a4ce6e0b444ee1a1aec4d1233dad271 extends Template
             if (((isset($context["previous"]) || array_key_exists("previous", $context) ? $context["previous"] : (function () { throw new RuntimeError('Variable "previous" does not exist.', 23, $this->source); })()) >= 0)) {
                 // line 24
                 yield "            <a href=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["conference"]) || array_key_exists("conference", $context) ? $context["conference"] : (function () { throw new RuntimeError('Variable "conference" does not exist.', 24, $this->source); })()), "id", [], "any", false, false, false, 24), "offset" => (isset($context["previous"]) || array_key_exists("previous", $context) ? $context["previous"] : (function () { throw new RuntimeError('Variable "previous" does not exist.', 24, $this->source); })())]), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["slug" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["conference"]) || array_key_exists("conference", $context) ? $context["conference"] : (function () { throw new RuntimeError('Variable "conference" does not exist.', 24, $this->source); })()), "slug", [], "any", false, false, false, 24), "offset" => (isset($context["previous"]) || array_key_exists("previous", $context) ? $context["previous"] : (function () { throw new RuntimeError('Variable "previous" does not exist.', 24, $this->source); })())]), "html", null, true);
                 yield "\">Previous</a>
         ";
             }
@@ -160,7 +160,7 @@ class __TwigTemplate_3a4ce6e0b444ee1a1aec4d1233dad271 extends Template
             if (((isset($context["next"]) || array_key_exists("next", $context) ? $context["next"] : (function () { throw new RuntimeError('Variable "next" does not exist.', 26, $this->source); })()) < Twig\Extension\CoreExtension::length($this->env->getCharset(), (isset($context["comments"]) || array_key_exists("comments", $context) ? $context["comments"] : (function () { throw new RuntimeError('Variable "comments" does not exist.', 26, $this->source); })())))) {
                 // line 27
                 yield "            <a href=\"";
-                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["id" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["conference"]) || array_key_exists("conference", $context) ? $context["conference"] : (function () { throw new RuntimeError('Variable "conference" does not exist.', 27, $this->source); })()), "id", [], "any", false, false, false, 27), "offset" => (isset($context["next"]) || array_key_exists("next", $context) ? $context["next"] : (function () { throw new RuntimeError('Variable "next" does not exist.', 27, $this->source); })())]), "html", null, true);
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("conference", ["slug" => CoreExtension::getAttribute($this->env, $this->source, (isset($context["conference"]) || array_key_exists("conference", $context) ? $context["conference"] : (function () { throw new RuntimeError('Variable "conference" does not exist.', 27, $this->source); })()), "slug", [], "any", false, false, false, 27), "offset" => (isset($context["next"]) || array_key_exists("next", $context) ? $context["next"] : (function () { throw new RuntimeError('Variable "next" does not exist.', 27, $this->source); })())]), "html", null, true);
                 yield "\">Next</a>
         ";
             }
@@ -229,10 +229,10 @@ class __TwigTemplate_3a4ce6e0b444ee1a1aec4d1233dad271 extends Template
             <p>{{ comment.text }}</p>
         {% endfor %}
         {% if previous >= 0 %}
-            <a href=\"{{ path('conference', { id: conference.id, offset: previous }) }}\">Previous</a>
+            <a href=\"{{ path('conference', { slug: conference.slug, offset: previous }) }}\">Previous</a>
         {% endif %}
         {% if next < comments|length %}
-            <a href=\"{{ path('conference', { id: conference.id, offset: next }) }}\">Next</a>
+            <a href=\"{{ path('conference', { slug: conference.slug, offset: next }) }}\">Next</a>
         {% endif %}
     {% else %}
         <div>No comments have been posted yet for this conference.</div>
