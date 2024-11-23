@@ -26,11 +26,13 @@ class Conference extends \App\Entity\Conference implements \Doctrine\ORM\Proxy\I
         "\0".parent::class."\0".'comments' => [parent::class, 'comments', null],
         "\0".parent::class."\0".'id' => [parent::class, 'id', null],
         "\0".parent::class."\0".'isInternational' => [parent::class, 'isInternational', null],
+        "\0".parent::class."\0".'slug' => [parent::class, 'slug', null],
         "\0".parent::class."\0".'year' => [parent::class, 'year', null],
         'city' => [parent::class, 'city', null],
         'comments' => [parent::class, 'comments', null],
         'id' => [parent::class, 'id', null],
         'isInternational' => [parent::class, 'isInternational', null],
+        'slug' => [parent::class, 'slug', null],
         'year' => [parent::class, 'year', null],
     ];
 

@@ -171,6 +171,14 @@ class __TwigTemplate_3a4ce6e0b444ee1a1aec4d1233dad271 extends Template
             yield "        <div>No comments have been posted yet for this conference.</div>
     ";
         }
+        // line 32
+        yield "    <h2>Add your own feedback</h2>
+
+    ";
+        // line 34
+        yield         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["comment_form"]) || array_key_exists("comment_form", $context) ? $context["comment_form"] : (function () { throw new RuntimeError('Variable "comment_form" does not exist.', 34, $this->source); })()), 'form');
+        yield "
+";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -201,7 +209,7 @@ class __TwigTemplate_3a4ce6e0b444ee1a1aec4d1233dad271 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  171 => 30,  168 => 29,  162 => 27,  159 => 26,  153 => 24,  150 => 23,  142 => 21,  136 => 18,  131 => 16,  128 => 15,  122 => 13,  119 => 12,  115 => 11,  109 => 9,  107 => 8,  101 => 6,  88 => 5,  64 => 3,  41 => 1,);
+        return array (  179 => 34,  175 => 32,  171 => 30,  168 => 29,  162 => 27,  159 => 26,  153 => 24,  150 => 23,  142 => 21,  136 => 18,  131 => 16,  128 => 15,  122 => 13,  119 => 12,  115 => 11,  109 => 9,  107 => 8,  101 => 6,  88 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -237,6 +245,9 @@ class __TwigTemplate_3a4ce6e0b444ee1a1aec4d1233dad271 extends Template
     {% else %}
         <div>No comments have been posted yet for this conference.</div>
     {% endif %}
+    <h2>Add your own feedback</h2>
+
+    {{ form(comment_form) }}
 {% endblock %}", "conference/show.html.twig", "/home/maksim/Рабочий стол/questbook/templates/conference/show.html.twig");
     }
 }
